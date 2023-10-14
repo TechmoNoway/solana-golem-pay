@@ -1,7 +1,7 @@
 {
-  "name": "solana-dapp-next",
+  "name": "solana-golem-pay",
   "version": "0.2.0",
-  "author": "Solana Maintainers <maintainers@solana.foundation>",
+  "author": "Kenny Will",
   "license": "MIT",
   "private": false,
   "scripts": {
