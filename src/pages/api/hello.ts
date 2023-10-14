@@ -37,18 +37,32 @@ async function post(req: NextApiRequest, res: NextApiResponse<PostData>) {
 
   const sender = new PublicKey(accountField);
 
+  // const merchant = Keypair.fromSecretKey(
+  //   new Uint8Array(
+  //     JSON.parse(
+  //       "[226,230,33,166,183,94,221,240,76,0,177,119,22,166,134,93,69,185,83,121,221,13,229,219,18,55,91,84,86,112,53,87,139,130,97,105,159,216,5,167,211,57,175,154,105,195,156,4,68,100,253,224,35,32,204,44,126,175,226,176,146,254,206,226]"
+  //     )
+  //   )
+  // );
+
   const merchant = Keypair.fromSecretKey(
     new Uint8Array(
       JSON.parse(
-        "[226,230,33,166,183,94,221,240,76,0,177,119,22,166,134,93,69,185,83,121,221,13,229,219,18,55,91,84,86,112,53,87,139,130,97,105,159,216,5,167,211,57,175,154,105,195,156,4,68,100,253,224,35,32,204,44,126,175,226,176,146,254,206,226]"
+        "[27, 83, 226, 222, 177, 141, 106, 163, 188, 156, 141, 12, 251, 76, 116, 248, 149, 16, 104, 173, 40, 119, 222, 24, 47, 198, 207, 71, 15, 142, 90, 207, 228, 168, 126, 103, 231, 113, 215, 19, 13, 38, 217, 204, 101, 127, 123, 5, 12, 203, 3, 21, 34, 180, 140, 191, 166, 238, 233, 154, 57, 124, 214, 131]"
       )
     )
   );
 
   // Build Transaction
+  // const ix = SystemProgram.transfer({
+  //   fromPubkey: sender,
+  //   toPubkey: new PublicKey("APaynxjiBJBrEX5rqYBTbmSFN4NhPg6TKzkTmhG7URoX"),
+  //   lamports: 133700000,
+  // });
+
   const ix = SystemProgram.transfer({
     fromPubkey: sender,
-    toPubkey: new PublicKey("APaynxjiBJBrEX5rqYBTbmSFN4NhPg6TKzkTmhG7URoX"),
+    toPubkey: new PublicKey("GPayNFy6ttH6KRAjfDd9KgvJX3RWVxx7gbTjamuTAHQ6"),
     lamports: 133700000,
   });
 
