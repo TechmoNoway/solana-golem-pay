@@ -8,7 +8,8 @@ import { createQR } from "@solana/pay";
 
 // const SOLANA_PAY_URL = "solana:https://solana-pay-demo-loopcreativeandy.vercel.app/api/hello";
 
-const SOLANA_PAY_URL = "solana:https://localhost:3000/api/hello";
+const SOLANA_PAY_URL =
+  "solana:https://solana-golem-798mwzzbo-kenny-wills-projects.vercel.app/api/hello";
 
 export const HomeView: FC = ({}) => {
   const qrRef = useRef<HTMLDivElement>();
