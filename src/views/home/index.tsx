@@ -28,14 +28,14 @@ export const HomeView: FC = ({}) => {
     <div className="md:hero mx-auto p-4">
       <div className="md:hero-content flex flex-col">
         <div className="mt-6">
-          <div className="text-sm font-normal align-bottom text-right text-slate-600 mt-4">
+          {/* <div className="text-sm font-normal align-bottom text-right text-slate-600 mt-4">
             v{pkg.version}
-          </div>
-          <h1 className="text-center text-5xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-            Scan this:
+          </div> */}
+          <h1 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
+            Checkout Scan:
           </h1>
 
-          <div ref={qrRef} />
+          <div ref={qrRef} className="flex justify-center" />
         </div>
       </div>
     </div>

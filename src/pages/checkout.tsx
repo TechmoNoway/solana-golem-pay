@@ -1,18 +1,20 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { HomeView, ShopView } from "../views";
+import { HomeView } from "../views";
+import { useRouter } from "next/router";
 
-const Home: NextPage = (props) => {
+const Checkout: NextPage = (props) => {
+  const router = useRouter();
+
   return (
     <div>
       <Head>
         <title>Golem Pay</title>
         <meta name="description" content="Golem Pay" />
       </Head>
-      {/* <HomeView /> */}
-      <ShopView />
+      <HomeView />
     </div>
   );
 };
 
-export default Home;
+export default Checkout;
