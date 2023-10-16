@@ -41,14 +41,14 @@ async function post(req: NextApiRequest, res: NextApiResponse<PostData>) {
     const merchant = Keypair.fromSecretKey(
         new Uint8Array(
             JSON.parse(
-                '[27, 83, 226, 222, 177, 141, 106, 163, 188, 156, 141, 12, 251, 76, 116, 248, 149, 16, 104, 173, 40, 119, 222, 24, 47, 198, 207, 71, 15, 142, 90, 207, 228, 168, 126, 103, 231, 113, 215, 19, 13, 38, 217, 204, 101, 127, 123, 5, 12, 203, 3, 21, 34, 180, 140, 191, 166, 238, 233, 154, 57, 124, 214, 131]',
+                '[119, 217, 86, 249, 155, 208, 52, 45, 56, 227, 141, 102, 88, 22, 208, 138, 76, 27, 60, 57, 61, 80, 115, 84, 41, 43, 69, 182, 234, 37, 208, 107, 228, 168, 128, 169, 64, 147, 245, 155, 24, 6, 111, 56, 45, 97, 68, 162, 65, 152, 194, 155, 7, 253, 59, 188, 244, 250, 186, 182, 25,202, 104, 137]',
             ),
         ),
     );
 
     const ix = SystemProgram.transfer({
         fromPubkey: sender,
-        toPubkey: new PublicKey('GPayNFy6ttH6KRAjfDd9KgvJX3RWVxx7gbTjamuTAHQ6'),
+        toPubkey: new PublicKey('GPaypU99YTPrxTnrLpzABzxGgaffkeTB7r4XD3ZcJdr8'),
         lamports: 160000000,
         // lamports: amount.multipliedBy(100000000).toNumber(),
     });
