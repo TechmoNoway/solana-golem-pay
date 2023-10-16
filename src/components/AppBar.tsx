@@ -98,7 +98,7 @@ export const AppBar: React.FC = () => {
                             className="text-secondary hover:text-white"
                         >
                             <img
-                                src="https://i.ibb.co/zSrQmzD/golempay-high-resolution-logo-color-on-transparent-background.png"
+                                src="https://i.ibb.co/4fMX79w/golempaypinkpurplelogo.png"
                                 width={180}
                                 height={35}
                                 alt="logo"

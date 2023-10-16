@@ -46,15 +46,11 @@ async function post(req: NextApiRequest, res: NextApiResponse<PostData>) {
         ),
     );
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const router = useRouter();
-    const amount = calculatePrice(router.query);
-
     const ix = SystemProgram.transfer({
         fromPubkey: sender,
         toPubkey: new PublicKey('GPayNFy6ttH6KRAjfDd9KgvJX3RWVxx7gbTjamuTAHQ6'),
-        // lamports: 133700000,
-        lamports: amount.multipliedBy(100000000).toNumber(),
+        lamports: 160000000,
+        // lamports: amount.multipliedBy(100000000).toNumber(),
     });
 
     let transaction = new Transaction();
