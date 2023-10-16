@@ -28,7 +28,6 @@ export default function Products({ submitTarget, enabled }: Props) {
                   </span>
                   {product.unitName && (
                     <span className="text-sm text-gray-800">
-                      {" "}
                       /{product.unitName}
                     </span>
                   )}

@@ -9,6 +9,8 @@ import {
 } from "@solana/web3.js";
 import type { NextApiRequest, NextApiResponse } from "next";
 import * as base58 from "base-58";
+import { useRouter } from "next/router";
+import calculatePrice from "lib/calculatePrice";
 
 type GetData = {
   label: string;
@@ -37,14 +39,6 @@ async function post(req: NextApiRequest, res: NextApiResponse<PostData>) {
 
   const sender = new PublicKey(accountField);
 
-  // const merchant = Keypair.fromSecretKey(
-  //   new Uint8Array(
-  //     JSON.parse(
-  //       "[226,230,33,166,183,94,221,240,76,0,177,119,22,166,134,93,69,185,83,121,221,13,229,219,18,55,91,84,86,112,53,87,139,130,97,105,159,216,5,167,211,57,175,154,105,195,156,4,68,100,253,224,35,32,204,44,126,175,226,176,146,254,206,226]"
-  //     )
-  //   )
-  // );
-
   const merchant = Keypair.fromSecretKey(
     new Uint8Array(
       JSON.parse(
@@ -53,17 +47,15 @@ async function post(req: NextApiRequest, res: NextApiResponse<PostData>) {
     )
   );
 
-  // Build Transaction
-  // const ix = SystemProgram.transfer({
-  //   fromPubkey: sender,
-  //   toPubkey: new PublicKey("APaynxjiBJBrEX5rqYBTbmSFN4NhPg6TKzkTmhG7URoX"),
-  //   lamports: 133700000,
-  // });
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const router = useRouter();
+  const amount = calculatePrice(router.query);
 
   const ix = SystemProgram.transfer({
     fromPubkey: sender,
     toPubkey: new PublicKey("GPayNFy6ttH6KRAjfDd9KgvJX3RWVxx7gbTjamuTAHQ6"),
-    lamports: 133700000,
+    // lamports: 133700000,
+    lamports: amount.multipliedBy(100000000).toNumber(),
   });
 
   let transaction = new Transaction();

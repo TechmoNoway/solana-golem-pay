@@ -1,12 +1,9 @@
-// Next, React
 import { FC, useEffect, useState, useRef } from "react";
 import Link from "next/link";
 
-import pkg from "../../../package.json";
-
 import { createQR } from "@solana/pay";
-
-// const SOLANA_PAY_URL = "solana:https://solana-pay-demo-loopcreativeandy.vercel.app/api/hello";
+import { useRouter } from "next/router";
+import calculatePrice from "lib/calculatePrice";
 
 const SOLANA_PAY_URL =
   "solana:https://solana-golem-798mwzzbo-kenny-wills-projects.vercel.app/api/hello";
@@ -24,15 +21,16 @@ export const HomeView: FC = ({}) => {
     }
   }, []);
 
+  const router = useRouter();
+
+  const amount = calculatePrice(router.query);
+
   return (
     <div className="md:hero mx-auto p-4">
       <div className="md:hero-content flex flex-col">
         <div className="mt-6">
-          {/* <div className="text-sm font-normal align-bottom text-right text-slate-600 mt-4">
-            v{pkg.version}
-          </div> */}
           <h1 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-            Checkout Scan:
+            Checkout Scan: {amount.toString()} SOL
           </h1>
 
           <div ref={qrRef} className="flex justify-center" />
