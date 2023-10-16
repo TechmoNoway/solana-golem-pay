@@ -1,7 +1,14 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { Keypair, SystemProgram, Transaction, TransactionMessage, TransactionSignature, VersionedTransaction } from '@solana/web3.js';
+import {
+    Keypair,
+    SystemProgram,
+    Transaction,
+    TransactionMessage,
+    TransactionSignature,
+    VersionedTransaction,
+} from '@solana/web3.js';
 import { FC, useCallback } from 'react';
-import { notify } from "../utils/notifications";
+import { notify } from '../utils/notifications';
 
 export const SendTransaction: FC = () => {
     const { connection } = useConnection();
@@ -16,7 +23,6 @@ export const SendTransaction: FC = () => {
 
         let signature: TransactionSignature = '';
         try {
-
             // Create instructions to send, in this case a simple transfer
             const instructions = [
                 SystemProgram.transfer({
@@ -27,7 +33,7 @@ export const SendTransaction: FC = () => {
             ];
 
             // Get the lates block hash to use on our transaction and confirmation
-            let latestBlockhash = await connection.getLatestBlockhash()
+            let latestBlockhash = await connection.getLatestBlockhash();
 
             // Create a new TransactionMessage with version and compile it to legacy
             const messageLegacy = new TransactionMessage({
@@ -37,7 +43,7 @@ export const SendTransaction: FC = () => {
             }).compileToLegacyMessage();
 
             // Create a new VersionedTransacction which supports legacy and v0
-            const transation = new VersionedTransaction(messageLegacy)
+            const transation = new VersionedTransaction(messageLegacy);
 
             // Send transaction and await for signature
             signature = await sendTransaction(transation, connection);
@@ -57,20 +63,19 @@ export const SendTransaction: FC = () => {
     return (
         <div className="flex flex-row justify-center">
             <div className="relative group items-center">
-                <div className="m-1 absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-fuchsia-500 
-                rounded-lg blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                    <button
-                        className="group w-60 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
-                        onClick={onClick} disabled={!publicKey}
-                    >
-                        <div className="hidden group-disabled:block ">
-                        Wallet not connected
-                        </div>
-                         <span className="block group-disabled:hidden" >
-                            Send Transaction
-                        </span>
-                    </button>
-             </div>
+                <div
+                    className="m-1 absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-fuchsia-500 
+                rounded-lg blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
+                ></div>
+                <button
+                    className="group w-60 m-2 btn animate-pulse bg-gradient-to-br from-indigo-500 to-fuchsia-500 hover:from-white hover:to-purple-300 text-black"
+                    onClick={onClick}
+                    disabled={!publicKey}
+                >
+                    <div className="hidden group-disabled:block ">Wallet not connected</div>
+                    <span className="block group-disabled:hidden">Send Transaction</span>
+                </button>
+            </div>
         </div>
     );
 };
