@@ -5,7 +5,7 @@ import { createQR } from '@solana/pay';
 import { useRouter } from 'next/router';
 import calculatePrice from 'lib/calculatePrice';
 
-const SOLANA_PAY_URL = 'solana:https://solana-golem-payment-ks2dc4zjb-kenny-wills-projects.vercel.app/api/hello';
+const SOLANA_PAY_URL = 'solana:https://solana-golem-payment.vercel.app/api/hello';
 
 export const HomeView: FC = ({}) => {
     const qrRef = useRef<HTMLDivElement>();
