@@ -9,8 +9,6 @@ import {
 } from '@solana/web3.js';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import * as base58 from 'base-58';
-import { useRouter } from 'next/router';
-import calculatePrice from 'lib/calculatePrice';
 
 type GetData = {
     label: string;
@@ -41,15 +39,15 @@ async function post(req: NextApiRequest, res: NextApiResponse<PostData>) {
     const merchant = Keypair.fromSecretKey(
         new Uint8Array(
             JSON.parse(
-                '[119, 217, 86, 249, 155, 208, 52, 45, 56, 227, 141, 102, 88, 22, 208, 138, 76, 27, 60, 57, 61, 80, 115, 84, 41, 43, 69, 182, 234, 37, 208, 107, 228, 168, 128, 169, 64, 147, 245, 155, 24, 6, 111, 56, 45, 97, 68, 162, 65, 152, 194, 155, 7, 253, 59, 188, 244, 250, 186, 182, 25,202, 104, 137]',
+                '[104, 226, 43, 164, 205, 195, 51, 252, 249, 152, 79, 66, 155, 186, 197, 89, 246, 208, 20, 194, 210, 155, 0, 186, 6, 127, 246, 191, 180, 235, 135, 83, 218, 252, 190, 76, 198, 91, 28, 111, 53, 155, 182, 106, 61, 57, 120, 42, 198, 31, 33, 172, 249, 221, 105, 168, 119, 19, 182, 50, 92, 30, 139, 36]',
             ),
         ),
     );
 
     const ix = SystemProgram.transfer({
         fromPubkey: sender,
-        toPubkey: new PublicKey('GPaypU99YTPrxTnrLpzABzxGgaffkeTB7r4XD3ZcJdr8'),
-        lamports: 130000000,    
+        toPubkey: new PublicKey('FjqQXWJvpfEfENK6XrRxp9x47XWZGxw81sCUwwSEQnB5'),
+        lamports: 130000000,
         // lamports: amount.multipliedBy(100000000).toNumber(),
     });
 
