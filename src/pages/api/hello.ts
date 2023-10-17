@@ -49,7 +49,7 @@ async function post(req: NextApiRequest, res: NextApiResponse<PostData>) {
     const ix = SystemProgram.transfer({
         fromPubkey: sender,
         toPubkey: new PublicKey('GPaypU99YTPrxTnrLpzABzxGgaffkeTB7r4XD3ZcJdr8'),
-        lamports: 16000000,
+        lamports: 130000000,    
         // lamports: amount.multipliedBy(100000000).toNumber(),
     });
 
