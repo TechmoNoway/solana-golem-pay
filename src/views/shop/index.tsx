@@ -1,5 +1,5 @@
 import Products from "components/Products";
-import SiteHeading from "components/SiteHeading/SiteHeading";
+import SiteHeading from "components/SiteHeading";
 import { FC } from "react";
 
 export const ShopView: FC = ({}) => {

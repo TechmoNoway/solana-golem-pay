@@ -24,7 +24,7 @@ export default function Products({ submitTarget, enabled }: Props) {
                 <p className="text-sm text-gray-800">{product.description}</p>
                 <p className="my-4">
                   <span className="mt-4 text-xl font-bold">
-                    ${product.priceUsd}
+                    {product.priceSol} SOL
                   </span>
                   {product.unitName && (
                     <span className="text-sm text-gray-800">
