@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import BackLink from '../components/BackLink';
-import Confirmed from '../components/Confirmed';
-import PageHeading from '../components/PageHeading';
+import Confirmed from '../components/Confirmed/Confirmed';
+import PageHeading from '../components/PageHeading/PageHeading';
 
 export default function ConfirmedPage() {
     const router = useRouter();

@@ -7,36 +7,39 @@ import calculatePrice from 'lib/calculatePrice';
 import { Connection, Keypair, clusterApiUrl } from '@solana/web3.js';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import { shopAddress } from 'lib/addresses';
+import { useCart } from 'contexts/cart-context';
+import cartCalculatePrice from 'lib/cartCalculatePrice';
 
 export const HomeView: FC = ({}) => {
     const qrRef = useRef<HTMLDivElement>();
 
     const router = useRouter();
 
-    const amount = useMemo(() => calculatePrice(router.query), [router.query]);
+    const { cartItems } = useCart();
 
+    console.log(cartItems);
+
+    // const amount = useMemo(() => calculatePrice(router.query), [router.query]);
+    const amount = useMemo(() => cartCalculatePrice(cartItems), []);
     // Read the URL query (which includes our chosen products)
     const searchParams = new URLSearchParams();
-    for (const [key, value] of Object.entries(router.query)) {
-        if (value) {
-            if (Array.isArray(value)) {
-                for (const v of value) {
-                    searchParams.append(key, v);
-                }
-            } else {
-                searchParams.append(key, value);
-            }
-        }
-    }
+    // for (const [key, value] of Object.entries(router.query)) {
+    //     if (value) {
+    //         if (Array.isArray(value)) {
+    //             for (const v of value) {
+    //                 searchParams.append(key, v);
+    //             }
+    //         } else {
+    //             searchParams.append(key, value);
+    //         }
+    //     }
+    // }
 
     console.log(searchParams);
     console.log(amount);
 
-    const solanaPayUrl = `solana:https://solana-golem-pay-i7u8n4ujr-kenny-wills-projects.vercel.app/api/hello?${searchParams.toString()}`;
-
-    console.log(
-        `https://solana-golem-pay-qrj3em801-kenny-wills-projects.vercel.appapi/hello?${searchParams.toString()}`,
-    );
+    // const solanaPayUrl = `solana:https://solana-golem-pay-i7u8n4ujr-kenny-wills-projects.vercel.app/api/hello?${searchParams.toString()}`;
+    const solanaPayUrl = `solana:https://solana-golem-pay-i7u8n4ujr-kenny-wills-projects.vercel.app/api/hello?box-of-cookies=1&basket-of-cookies=1`;
 
     // Generate the unique reference which will be used for this transaction
     const reference = useMemo(() => Keypair.generate().publicKey, []);
@@ -99,7 +102,7 @@ export const HomeView: FC = ({}) => {
             <div className="md:hero-content flex flex-col">
                 <div className="mt-6">
                     <h1 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-                        Checkout Scan: {amount.toString()} SOL
+                        Checkout Scan: {amount.dividedBy(1000).toString()} SOL
                     </h1>
 
                     <div ref={qrRef} className="flex justify-center" />
