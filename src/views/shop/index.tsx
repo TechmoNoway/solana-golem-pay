@@ -1,4 +1,3 @@
-import Products from 'components/Products/Products';
 import SiteHeading from 'components/SiteHeading';
 import { FC } from 'react';
 
@@ -8,7 +7,6 @@ export const ShopView: FC = ({}) => {
             <SiteHeading>Golem Shop</SiteHeading>
 
             {/* <Products submitTarget="/checkout" enabled={publicKey !== null} /> */}
-            <Products submitTarget="/checkout" enabled={true} />
         </div>
     );
 };
