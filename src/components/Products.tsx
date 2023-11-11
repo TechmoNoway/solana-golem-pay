@@ -1,52 +1,128 @@
-import { useRef } from "react";
-import { products } from "../lib/products";
-import NumberInput from "./NumberInput";
+'use client';
 
-interface Props {
-  submitTarget: string;
-  enabled: boolean;
+import * as React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+import { ProductCard } from './product-card';
+import { PaginationButton } from './pagination-button';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { Product } from '../types';
+import { Button } from './ui/button';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from './ui/dropdown-menu';
+import { Icons } from './icons';
+import { sortOptions } from '../config/site-config';
+import { cn } from '../lib/utils';
+import { setTransition } from '../lib/transition';
+
+interface ProductsProps {
+    products: Product[];
+    pageCount: number;
+    page?: string;
+    per_page?: string;
+    sort?: string;
 }
 
-export default function Products({ submitTarget, enabled }: Props) {
-  const formRef = useRef<HTMLFormElement>(null);
+export function Products({ products, pageCount }: ProductsProps) {
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    console.log(searchParams);
 
-  return (
-    <form method="get" action={submitTarget} ref={formRef}>
-      <div className="flex flex-col gap-16">
-        <div className="grid grid-cols-2 gap-8">
-          {products.map((product) => {
-            return (
-              <div
-                className="rounded-md bg-white p-8 text-left"
-                key={product.id}
-              >
-                <h3 className="text-2xl font-bold">{product.name}</h3>
-                <p className="text-sm text-gray-800">{product.description}</p>
-                <p className="my-4">
-                  <span className="mt-4 text-xl font-bold">
-                    ${product.priceUsd}
-                  </span>
-                  {product.unitName && (
-                    <span className="text-sm text-gray-800">
-                      /{product.unitName}
-                    </span>
-                  )}
-                </p>
-                <div className="mt-1">
-                  <NumberInput name={product.id} formRef={formRef} />
+    // Search params
+    const page = searchParams?.get('page') ?? '1';
+    const per_page = searchParams?.get('per_page') ?? '8';
+    const sort = searchParams?.get('sort') ?? '';
+
+    // Create query string
+    const createQueryString = React.useCallback(
+        (params: Record<string, string | number | null>) => {
+            const newSearchParams = new URLSearchParams(searchParams?.toString());
+
+            for (const [key, value] of Object.entries(params)) {
+                if (value === null) {
+                    newSearchParams.delete(key);
+                } else {
+                    newSearchParams.set(key, String(value));
+                }
+            }
+
+            return newSearchParams.toString();
+        },
+        [searchParams],
+    );
+
+    return (
+        <AnimatePresence>
+            <motion.div
+                key={sort}
+                {...setTransition({
+                    typeIn: 'spring',
+                    duration: 0.5,
+                    distanceY: -50,
+                })}
+                className="flex flex-col space-y-6"
+            >
+                <div className="flex items-center space-x-2">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button aria-label="Sort products " size="sm">
+                                Sort <Icons.chevronDown className="ml-2 h-4 w-4" aria-hidden="true" />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="start" className="w-48">
+                            <DropdownMenuLabel>Sort by</DropdownMenuLabel>
+                            <DropdownMenuSeparator />
+                            {sortOptions.map((option) => (
+                                <DropdownMenuItem
+                                    key={option.label}
+                                    className={cn(option.value === sort && 'font-bold')}
+                                    onClick={() => {
+                                        router.push(
+                                            `${pathname}?${createQueryString({
+                                                sort: option.value,
+                                            })}`,
+                                        );
+                                    }}
+                                >
+                                    {option.label}
+                                </DropdownMenuItem>
+                            ))}
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <button
-          className="max-w-fit items-center self-center rounded-md bg-gray-900 px-20 py-2 text-white hover:scale-105 disabled:cursor-not-allowed disabled:opacity-50"
-          disabled={!enabled}
-        >
-          Checkout
-        </button>
-      </div>
-    </form>
-  );
+                {!products.length ? (
+                    <div className="mx-auto flex max-w-xs flex-col space-y-1 5">
+                        <h1 className="text-center text-2xl font-bold">No products found</h1>
+                        <p className="text-center text-muted-foreground">
+                            Try changing your filters, or check back later for new products
+                        </p>
+                    </div>
+                ) : null}
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {products.map((product) => (
+                        <ProductCard key={product.id} product={product} />
+                    ))}
+                </div>
+                {products.length ? (
+                    <PaginationButton
+                        pageCount={pageCount}
+                        page={page}
+                        per_page={per_page}
+                        sort={sort}
+                        createQueryString={createQueryString}
+                        router={router}
+                        pathname={pathname}
+                        isPending={false}
+                    />
+                ) : null}
+            </motion.div>
+        </AnimatePresence>
+    );
 }
