@@ -1,9 +1,13 @@
 import { Product } from '../../types';
+<<<<<<< HEAD
 import { Shell } from '../../components/Shells/shell';
 import { Header } from '../../components/header';
 import { Products } from '../../components/products';
 import { toTitleCase } from '../../lib/utils';
 import { FC, useEffect, useState } from 'react';
+=======
+import { FC } from 'react';
+>>>>>>> 4c141be9ac23a949c32808887b57bdda0b25a1cd
 
 interface CategoryPageProps {
     params: {
@@ -14,6 +18,7 @@ interface CategoryPageProps {
     };
 }
 
+<<<<<<< HEAD
 // async function getCategory(category: string, sort?: string) {
 //     try {
 //         const apiUrl = `https://fakestoreapi.com/products/category/${category}?sort=${sort}`;
@@ -54,6 +59,9 @@ export const CategoryView: FC = ({ params, searchParams }: CategoryPageProps) =>
     //     fetchCategory();
     // }, []);
 
+=======
+export const CategoryView: FC = ({ params, searchParams }: CategoryPageProps) => {
+>>>>>>> 4c141be9ac23a949c32808887b57bdda0b25a1cd
     return (
         <div>
             {/* <Shell>

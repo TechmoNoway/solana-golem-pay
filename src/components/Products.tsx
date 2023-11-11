@@ -29,7 +29,11 @@ interface ProductsProps {
     sort?: string;
 }
 
+<<<<<<< HEAD
 export function Products({ products, pageCount }: ProductsProps) {
+=======
+export const Products: React.FC = ({ products, pageCount }: ProductsProps) => {
+>>>>>>> 4c141be9ac23a949c32808887b57bdda0b25a1cd
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -125,4 +129,8 @@ export function Products({ products, pageCount }: ProductsProps) {
             </motion.div>
         </AnimatePresence>
     );
+<<<<<<< HEAD
 }
+=======
+};
+>>>>>>> 4c141be9ac23a949c32808887b57bdda0b25a1cd
