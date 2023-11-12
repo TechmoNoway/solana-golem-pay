@@ -1,13 +1,5 @@
 import { Product } from '../../types';
-<<<<<<< HEAD
-import { Shell } from '../../components/Shells/shell';
-import { Header } from '../../components/header';
-import { Products } from '../../components/products';
-import { toTitleCase } from '../../lib/utils';
-import { FC, useEffect, useState } from 'react';
-=======
 import { FC } from 'react';
->>>>>>> 4c141be9ac23a949c32808887b57bdda0b25a1cd
 
 interface CategoryPageProps {
     params: {
@@ -18,50 +10,7 @@ interface CategoryPageProps {
     };
 }
 
-<<<<<<< HEAD
-// async function getCategory(category: string, sort?: string) {
-//     try {
-//         const apiUrl = `https://fakestoreapi.com/products/category/${category}?sort=${sort}`;
-//         const res = await fetch(apiUrl);
-
-//         if (!res.ok) {
-//             throw new Error('Failed to fetch data');
-//         }
-
-//         const data = await res.json();
-//         return data;
-//     } catch (error) {
-//         console.error('Error fetching category data:', error);
-//         throw error;
-//     }
-// }
-
 export const CategoryView: FC = ({ params, searchParams }: CategoryPageProps) => {
-    // const [products, setProducts] = useState([]);
-    // const [paginatedProducts, setPagiatedProducts] = useState([]);
-    // const [pageCount, setPageCount] = useState(null);
-    // const [formattedName, setFormattedName] = useState(null);
-    // const { category } = params;
-    // const { page, per_page, sort } = searchParams;
-    // useEffect(() => {
-    //     const fetchCategory = async () => {
-    //         const data = await getCategory(category, sort as string);
-    //         setProducts(data.slice(0, 4));
-
-    //         const limit = typeof per_page === 'string' ? parseInt(per_page) : 8;
-    //         const offset = typeof page === 'string' ? (parseInt(page) - 1) * limit : 0;
-
-    //         setPagiatedProducts(products.slice(offset, offset + limit));
-    //         setPageCount(Math.ceil(products.length / limit));
-    //         setFormattedName(category.replace(/%20/g, ' '));
-    //     };
-
-    //     fetchCategory();
-    // }, []);
-
-=======
-export const CategoryView: FC = ({ params, searchParams }: CategoryPageProps) => {
->>>>>>> 4c141be9ac23a949c32808887b57bdda0b25a1cd
     return (
         <div>
             {/* <Shell>
