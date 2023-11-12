@@ -1,6 +1,6 @@
 import { Shell } from '../../components/Shells/shell';
 import { siteConfig } from '../../config/site-config';
-import { getProducts } from '../products/index';
+import { getProducts } from '../productsview/index';
 import { ProductCard } from '../../components/product-card';
 import { Button } from '../../components/ui/button';
 import Link from 'next/link';

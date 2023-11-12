@@ -6,7 +6,7 @@ import { Button } from './ui/button';
 import { Icons } from './icons';
 import { CommandDialog, CommandEmpty, CommandInput, CommandItem, CommandList } from './ui/command';
 import { Skeleton } from './ui/skeleton';
-import { getProducts } from '../views/products/index';
+import { getProducts } from '../views/productsview/index';
 
 export function Combobox() {
     const router = useRouter();
