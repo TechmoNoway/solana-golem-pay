@@ -1,6 +1,7 @@
 import { Header } from '../../components/header';
 import { Shell } from '../../components/Shells/shell';
-import { Products } from '../../components/Products';
+import { Products } from '../../components/products';
+
 import { Product } from '../../types';
 import { useEffect, useState, FC } from 'react';
 
@@ -30,6 +31,7 @@ interface ProductsViewProps {
 }
 
 export const ProductsView: FC = ({ searchParams }: ProductsViewProps) => {
+    
     const { page, per_page, sort } = searchParams;
 
     const [products, setProducts] = useState([]);
