@@ -1,6 +1,6 @@
 import { Header } from '../../components/header';
 import { Shell } from '../../components/Shells/shell';
-import { Products } from 'components/products';
+import { Products } from 'components/productlist';
 
 import { Product } from '../../types';
 import { useEffect, useState, FC } from 'react';
