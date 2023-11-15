@@ -22,7 +22,7 @@ export const sortOptions = [
 ];
 
 export const siteConfig = {
-    name: 'Shoppingcart',
+    name: 'Golem Pay',
     mainNav: [
         {
             title: 'Products',

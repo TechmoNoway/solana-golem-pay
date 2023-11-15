@@ -7,10 +7,10 @@ export default function ConfirmedPage() {
     const router = useRouter();
 
     return (
-        <div className="flex flex-col items-center gap-8">
+        <div className="flex flex-col items-center gap-8 mt-6">
             <BackLink href="/">Next order</BackLink>
 
-            <PageHeading>Thankyou, enjoy your cookies!</PageHeading>
+            <PageHeading>Thankyou, enjoy your products</PageHeading>
 
             <div className="h-80 w-80">
                 <Confirmed />

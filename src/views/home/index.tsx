@@ -97,6 +97,10 @@ export const HomeView: FC = ({}) => {
         };
     }, [amount]);
 
+    const handleConfirmPaying = () => {
+        router.push('/confirmed');
+    };
+
     return (
         <div className="md:hero mx-auto p-4">
             <div className="md:hero-content flex flex-col">
@@ -106,6 +110,14 @@ export const HomeView: FC = ({}) => {
                     </h1>
 
                     <div ref={qrRef} className="flex justify-center" />
+
+                    <button
+                        className="flext justify-center px-8 py-2 mt-4 mx-1 bg-orange-500 text-white font-semibold rounded-lg"
+                        type="submit"
+                        id="submitted"
+                    >
+                        Confirm Paying
+                    </button>
                 </div>
             </div>
         </div>

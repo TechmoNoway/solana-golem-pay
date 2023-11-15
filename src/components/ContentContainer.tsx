@@ -8,8 +8,7 @@ interface Props {
 
 export const ContentContainer: FC<Props> = ({ children }) => {
     return (
-        <div className="flex-1 drawer h-52 bg-black">
-            <input id="my-drawer" type="checkbox" className="grow drawer-toggle" />
+        <div className="flex-1  bg-black">
             <div className="items-center drawer-content">{children}</div>
         </div>
     );

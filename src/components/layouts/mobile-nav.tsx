@@ -31,8 +31,12 @@ export function MobileNav({ mainNavItems }: MobileNavProps) {
             <SheetContent side="left" className="pl-1 pr-0">
                 <div className="px-7">
                     <Link aria-label="home" href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
-                        <Icons.shoppingCart className="mr-2 h-4 w-4" aria-hidden="true" />
-                        <span className="font-bold">{siteConfig.name}</span>
+                        <img
+                            src="https://i.ibb.co/4fMX79w/golempaypinkpurplelogo.png"
+                            width={170}
+                            height={105}
+                            alt="logo"
+                        />
                     </Link>
                 </div>
                 <ScrollArea className="my-6 h-[calc(100vh-8rem)] pb-10 pl-6">

@@ -6,7 +6,6 @@ import { FC } from 'react';
 import { ContextProvider } from '../contexts/ContextProvider';
 import { CartProvider } from '../contexts/cart-context';
 
-import { AppBar } from '../components/AppBar';
 import { ContentContainer } from '../components/ContentContainer';
 import { Footer } from '../components/Footer/Footer';
 import Notifications from '../components/Notification';

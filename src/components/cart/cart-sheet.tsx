@@ -16,7 +16,7 @@ export const CartSheet: FC = () => {
     const router = useRouter();
 
     const handleSubmit = () => {
-        router.push(`/checkout`);
+        router.push(`/payment`);
     };
 
     return (
