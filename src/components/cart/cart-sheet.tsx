@@ -53,6 +53,7 @@ export const CartSheet: FC = () => {
                 <button
                     onClick={handleSubmit}
                     className="max-w-fit items-center mt-12 self-center rounded-md bg-gray-900 px-20 py-2 text-white hover:scale-105 disabled:cursor-not-allowed disabled:opacity-50"
+                    disabled={cartItems.length === 0}
                 >
                     Checkout
                 </button>

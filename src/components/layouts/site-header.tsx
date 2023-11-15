@@ -20,7 +20,7 @@ const SiteHeader = () => {
 
     return (
         <>
-            <div className="fixed z-50 navbar top-0 w-full bg-black border-b border-zinc-600 bg-opacity-66">
+            <div className="fixed z-40 navbar top-0 w-full bg-black border-b border-zinc-600 bg-opacity-66">
                 <div className="navbar container flex h-16 flex-row shadow-lg bg-black text-neutral-content ">
                     <MainNav mainNavItems={siteConfig.mainNav} />
                     <MobileNav mainNavItems={siteConfig.mainNav} />

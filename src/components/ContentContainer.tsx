@@ -8,7 +8,7 @@ interface Props {
 
 export const ContentContainer: FC<Props> = ({ children }) => {
     return (
-        <div className="flex-1  bg-black">
+        <div className="flex-1 mt-28 bg-black">
             <div className="items-center drawer-content">{children}</div>
         </div>
     );

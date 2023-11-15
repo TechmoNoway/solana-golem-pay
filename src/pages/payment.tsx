@@ -185,7 +185,17 @@ export default function PaymentPage() {
                     </div>
                 </div>
 
-                <Modal isOpen={showModal} onClose={handleToggleShowModal} />
+                <Modal
+                    isOpen={showModal}
+                    onClose={handleToggleShowModal}
+                    total={`${amount.dividedBy(23).toFixed(2).toString()}` + ' Sol'}
+                    each={
+                        `${amount
+                            .dividedBy(23 * 4)
+                            .toFixed(2)
+                            .toString()}` + ' Sol'
+                    }
+                />
             </div>
         </div>
     );
