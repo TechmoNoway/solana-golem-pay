@@ -73,7 +73,7 @@ export default function PaymentPage() {
                                     Email
                                 </label>
                                 <input
-                                    className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight border-gray-800 focus:outline-none focus:shadow-outline font-semibold"
+                                    className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-white leading-tight border-gray-800 focus:outline-none focus:shadow-outline font-semibold"
                                     id="email"
                                     type="email"
                                     placeholder="Enter your email..."
@@ -85,7 +85,7 @@ export default function PaymentPage() {
                                     Phone
                                 </label>
                                 <input
-                                    className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight border-gray-800 focus:outline-none focus:shadow-outline font-semibold"
+                                    className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-white leading-tight border-gray-800 focus:outline-none focus:shadow-outline font-semibold"
                                     id="phone"
                                     type="number"
                                     placeholder="Enter your phone..."
@@ -99,7 +99,7 @@ export default function PaymentPage() {
                                     Full name
                                 </label>
                                 <input
-                                    className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight border-gray-800 focus:outline-none focus:shadow-outline font-semibold"
+                                    className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-white leading-tight border-gray-800 focus:outline-none focus:shadow-outline font-semibold"
                                     id="name"
                                     type="text"
                                     placeholder="John Doe"
@@ -111,7 +111,7 @@ export default function PaymentPage() {
                                     Address
                                 </label>
                                 <input
-                                    className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight border-gray-800 focus:outline-none focus:shadow-outline font-semibold"
+                                    className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-white leading-tight border-gray-800 focus:outline-none focus:shadow-outline font-semibold"
                                     id="address"
                                     type="text"
                                     placeholder="Your address..."
@@ -121,11 +121,11 @@ export default function PaymentPage() {
 
                             <div className="flex mb-4">
                                 <div className="relative flex-1">
-                                    <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="country">
+                                    <label className="block text-white text-sm font-semibold mb-2" htmlFor="country">
                                         Country
                                     </label>
                                     <select
-                                        className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight border-gray-800 focus:outline-none focus:shadow-outline font-semibold"
+                                        className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-white leading-tight border-gray-800 focus:outline-none focus:shadow-outline font-semibold"
                                         id="country"
                                         required
                                     >
@@ -142,7 +142,7 @@ export default function PaymentPage() {
                                         Postal Code
                                     </label>
                                     <input
-                                        className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight border-gray-800 focus:outline-none focus:shadow-outline placeholder-gray-500 font-semibold"
+                                        className="shadow appearance-none border rounded-lg w-full py-3 px-4 text-white leading-tight border-gray-800 focus:outline-none focus:shadow-outline placeholder-gray-500 font-semibold"
                                         type="text"
                                         id="postal-code"
                                         placeholder="Your postal code..."
