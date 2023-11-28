@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Modal from 'components/Modal';
 import { useCart } from 'contexts/cart-context';
 import cartCalculatePrice from 'lib/cartCalculatePrice';
@@ -14,7 +15,17 @@ export default function PaymentPage() {
 
     const amount = useMemo(() => cartCalculatePrice(cartItems), []);
 
+    const handleNormalPay = async () => {
+        const response = await axios.post(
+            'https://solana-golem-pay-m61ox6v0r-kenny-wills-projects.vercel.app/api/normal',
+            { amount },
+        );
+
+        console.log(response.data);
+    };
+
     const handleConfirmPaying = () => {
+        handleNormalPay();
         router.push('/confirmed');
     };
 
@@ -174,7 +185,7 @@ export default function PaymentPage() {
                                 type="button"
                                 onClick={handleToggleShowModal}
                             >
-                                Pay in 4
+                                Pay in 4 parts{' '}
                                 {amount
                                     .dividedBy(23 * 4)
                                     .toFixed(2)

@@ -38,14 +38,9 @@ export const HomeView: FC = ({}) => {
     console.log(searchParams);
     console.log(amount);
 
-    // const solanaPayUrl = `solana:https://solana-golem-pay-i7u8n4ujr-kenny-wills-projects.vercel.app/api/hello?${searchParams.toString()}`;
-    const solanaPayUrl = `solana:https://solana-golem-pay-i7u8n4ujr-kenny-wills-projects.vercel.app/api/hello?box-of-cookies=1&basket-of-cookies=1`;
+    const solanaPayUrl = `solana:https://solana-golem-pay-m61ox6v0r-kenny-wills-projects.vercel.app/api/hello?box-of-cookies=1&basket-of-cookies=1`;
 
-    // Generate the unique reference which will be used for this transaction
     const reference = useMemo(() => Keypair.generate().publicKey, []);
-
-    // Add it to the params we'll pass to the API
-    // searchParams.append('reference', reference.toString());
 
     const network = WalletAdapterNetwork.Devnet;
     const endpoint = clusterApiUrl(network);
@@ -112,7 +107,7 @@ export const HomeView: FC = ({}) => {
                     <div ref={qrRef} className="flex justify-center" />
 
                     <button
-                        className="flext justify-center px-8 py-2 mt-4 mx-1 bg-orange-500 text-white font-semibold rounded-lg"
+                        className="flex w-full justify-center px-8 py-2 mt-4 mx-1 bg-orange-500 text-white font-semibold rounded-lg"
                         type="submit"
                         id="submitted"
                     >
